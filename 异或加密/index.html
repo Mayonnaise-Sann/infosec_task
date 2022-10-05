@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异或加密</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    
+    <main class="container">
+        <header>
+            <h1 class="myTitle">异或运算加密算法</h1>
+        </header>
+        <main>
+            <!-- 1. 输入密钥 -->
+            <div>
+                <p class="tips">1. 输入密钥</p>
+                <span>请输入您的密钥：</span>
+                <input type="text" id="secretkey">
+    
+            </div>
+            <!-- 2. 选择文件 -->
+           <div>
+            <p class="tips">2. 选择文件或输入明文</p>
+            <input type="file" id="plaintextFile" name="plaintextFile" multiple />
+            <br>
+            <textarea name="plaintext" class="displayText" id="plaintext" ></textarea>
+           </div>
+           <!-- 3. 加密解密 -->
+           <div>
+            <button id="trigger">点击加密或解密</button>
+            <div id="ciphertextContain">
+                <p class="tips">3. 输出密文</p>
+                <p id="cText" class="displayText"></p>
+            </div>
+           </div>
+           <div>
+            <button id="downloadFile">下载密文文件</button>
+           </div>
+        </main>
+        
+    </main>
+
+    <script src="./main.js"></script>
+</body>
+</html>
