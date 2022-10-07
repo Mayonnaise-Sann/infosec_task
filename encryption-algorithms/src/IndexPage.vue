@@ -1,17 +1,17 @@
 <template>
 <div class="container">
       <h1>信安第四次作业-加密算法</h1>
-      <el-tabs type="border-card">
+      <el-tabs type="border-card" @tab-change="handleClick"  activeName='caesar'>
         <!-- 1. 凯撒算法 -->
-        <el-tab-pane label="caesar">
+        <el-tab-pane label="caesar" name="caesar">
           <caesar ></caesar>
         </el-tab-pane>
         <!-- 2. playfair加密算法 -->
-        <el-tab-pane label="playfair">
+        <el-tab-pane label="playfair" name="playfair">
           <playfair  ></playfair>
         </el-tab-pane>
         <!-- 3. 希尔加密算法 -->
-        <el-tab-pane label="hill">
+        <el-tab-pane label="hill" name="hill">
           <hill ></hill>
         </el-tab-pane>
       </el-tabs>
@@ -49,8 +49,12 @@ provide('originText', {
   plaintext,
   ciphertext
 })
-</script>
 
+
+const handleClick = () => {
+  ciphertext.value = '';
+}
+</script>
 
 <style scope>
     body,
