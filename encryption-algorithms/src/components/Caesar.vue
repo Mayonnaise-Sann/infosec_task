@@ -19,7 +19,6 @@ const { ciphertext } = inject("originText");
 // Caesar加密算法
 const useCaesar = (str, key) => {
     let ciphertextArr = new Array;
-    str = str.split(" ").join('');
     let len = str.length;
     for (let i = 0; i < len; i++) {
         // 取得ASCII码,循环增加

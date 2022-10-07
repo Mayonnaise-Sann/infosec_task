@@ -42,8 +42,8 @@ import { ref, provide } from 'vue'
 
 */
 
-let plaintext = ref('abc');
-let ciphertext = ref('ABD');
+let plaintext = ref('Frailty thy name is woman');
+let ciphertext = ref('');
 
 provide('originText', {
   plaintext,

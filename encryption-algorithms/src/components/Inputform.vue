@@ -30,7 +30,7 @@
 
     // 将原始输入的字符格式化为大写字母
     const str = computed(() => {
-        return plaintext.value.toUpperCase();
+        return plaintext.value.toUpperCase().split(' ').join('');
     })
     // 父子组件通信
     const emit = defineEmits(['encrypt'])
