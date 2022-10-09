@@ -1,24 +1,38 @@
 <template>
-    Playfair
-    <inputform @encrypt="encrypt">
-    <el-form-item class="inputArea" label="密钥(只能是字母)：">
-        <el-input 
-        v-model="key" 
-        placeholder="请输入密钥，只能是字母字符串" 
-        @input="key = key.replace(/[^\a-\z]/g,'')"
-        clearable 
-        />
-    </el-form-item>
-    <div class="inputArea">
-        <span>填充的字母[a-z]：</span>
-        <el-input 
-        v-model="fillChar" 
-        placeholder="请输入填充字母[a-z]" 
-        maxlength="1"
-        @input="fillChar = fillChar.replace(/[^\a-\z]/g,'')"  
-        clearable />
-    </div>
+    <inputform @encrypt="encrypt" >
+        <template v-slot:key-input>
+            <el-form-item class="inputArea" label="填充的字母[a-z]：">
+                <el-input 
+                v-model="fillChar" 
+                placeholder="请输入填充字母[a-z]" 
+                maxlength="1"
+                @input="fillChar = fillChar.replace(/[^\a-\z]/g,'')"  
+                clearable />
+            </el-form-item>
+            <el-form-item class="inputArea" label="密钥(只能是字母)：">
+                <el-input 
+                v-model="key" 
+                placeholder="请输入密钥，只能是字母字符串" 
+                @input="key = key.replace(/[^\a-\z]/g,'')"
+                clearable 
+                />
+            </el-form-item>
+        </template>
+        <!-- 加密矩阵  -->
+        <template v-slot:matrix>
+            <div class="matrix-container">
+                 <div class="matrix">
+                    <p class="encryption-matrix-title">加密矩阵</p>
+                    <div class="encryption-matrix">
+                        <span v-for="cell in matrix" :key="cell" class="encryption-matrix-cell">
+                            {{cell}}
+                        </span>
+                    </div>
+                 </div>
+            </div>
+        </template>
     </inputform>
+    
 </template>
 
 <script setup>
@@ -33,7 +47,7 @@ const key = ref('holmes');
 const fillChar = ref('k');
 
 const keyStr = computed(() => {
-        return key.value.toUpperCase();
+        return key.value.toUpperCase().replace(/J/g,'I');
     })
 // Playfair加密算法
 
@@ -43,7 +57,9 @@ const createMatrix = (key) => {
     let Arr2 = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
     return Array.from(new Set(Arr1.concat(Arr2)))
 }
-
+const matrix = computed(() => {
+    return createMatrix(keyStr.value)
+});
 
 // 2. 预处理明文
 const formatPlaintext = (str) => {
@@ -57,7 +73,7 @@ const formatPlaintext = (str) => {
         }
     }
     const newStr = arrStr.join('');
-    // console.log(newStr)
+
     return newStr;    //  返回处理过的明文  
 }
 
@@ -66,24 +82,15 @@ const formatPlaintext = (str) => {
 const usePlayfair = (str, key) => {
     const formatText = formatPlaintext(str);
     const matrix = createMatrix(key);
-    let s =[];
-
-    for (let i = 0; i < matrix.length; i++){
-        s.push(matrix[i]);
-        if ((i + 1) % 5 == 0) {
-            console.log(s);
-            s = [];
-        }
-    }
-
+    
     const ciphertextArr = new Array;
     const arrStr = formatText.split("");
     const lenPlain = arrStr.length;   // 处理后的明文长度
     const lenLetterMatrix = matrix.length; // 加密矩阵长度
 
 
-    let x = '';
-    let y = '';
+    let x = 0;
+    let y = 0;
     for (let i = 0; i < lenPlain; i += 2) {
        
         for (let j = 0; j < lenLetterMatrix; j++){
@@ -94,7 +101,7 @@ const usePlayfair = (str, key) => {
                 y = j;
             }
         }
-        if (x+1 != '' && y != '') {
+        if ((x+1 !== 0 && y !== 0 )||( x !== 0 && y+1 !== 0)) { //存在当仅x或者y的索引值为0，即第一个元素的情况，允许通过
             // 行 
             let row1 = Number.parseInt( x / 5); // 取整
             let row2 =Number.parseInt( y / 5);
@@ -138,3 +145,42 @@ const encrypt = (str) => {
 }
 
 </script>
+
+<style>
+.matrix-container {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 48px;
+}
+.matrix {
+    position: absolute;
+    bottom: 28%;
+}
+.encryption-matrix-title{
+    width: 117px;
+    margin: 0;
+    color:  rgb(25, 46, 129);
+    text-align: center;
+    font-weight: 800;
+    border: 2px solid rgb(25, 46, 129);
+}
+.encryption-matrix{
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-left: 1px solid rgb(25, 46, 129);
+}
+.encryption-matrix-cell {
+    display: inline-block;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+    line-height: 23px;
+    color: rgb(36, 160, 209);
+    border-right: 1px solid rgb(25, 46, 129);
+    border-bottom: 1px solid rgb(25, 46, 129);
+
+}
+</style>

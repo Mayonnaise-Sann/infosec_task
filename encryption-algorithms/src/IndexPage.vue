@@ -3,7 +3,7 @@
    <div class="common-layout">
         <el-container>
           <el-header>
-            <h1>信安第四次作业-加密算法</h1>
+            <h1>信安第四次作业 - 加密算法</h1>
           </el-header>
           <el-container>
             <el-container style="width: 760px">
@@ -94,6 +94,7 @@ const handleClick = () => {
       }
     .container {
       width: 100%;
+      height: 100vh;
       margin: 0 auto;
       background-color: rgba(203, 228, 253, 0.838);
     }

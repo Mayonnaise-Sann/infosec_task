@@ -1,6 +1,5 @@
 <template>
-    <el-form 
-    >
+    <el-form >
         <el-form-item class="inputArea" label="明文" prop="plaintext">
            <el-input
            v-model="plaintext"
@@ -9,18 +8,20 @@
            placeholder="请输入明文"
            @input="plaintext = plaintext.replace(/[^\a-\z\A-\Z\s]/g,'')"
          />
-    </el-form-item>
+        </el-form-item>
     
-    <slot></slot>
+         <slot name="key-input"></slot>
 
-    <el-form-item>
-        <el-button type="primary" id="encryption" @click="encrypt">点击加密</el-button>
-    </el-form-item>
+         <el-form-item>
+             <el-button type="primary" id="encryption" @click="encrypt">点击加密</el-button>
+         </el-form-item>
 
-    <div class="inputArea">
-        <span>输出密文：</span>
-        <p id="ciphertext">{{ciphertext}}</p>
-    </div>
+         <slot name="matrix"></slot>
+
+        <div class="inputArea">
+            <span>输出密文：</span>
+            <p id="ciphertext">{{ciphertext}}</p>
+        </div>
     </el-form>
 </template>
 

@@ -1,18 +1,19 @@
 <template>
-    Hill
     <inputform @encrypt="encrypt">
-    <el-form-item class="inputArea" label="密钥：">
-        <el-input v-model="key" placeholder="请输入密钥，3*3的数字矩阵，数字用逗号隔开" 
-        @input="key = key.replace(/[^0-9\,\，]/g,'').replace(/[\，]/g,',')"
-        clearable
-         />
-    </el-form-item>
-    <el-form-item>
-        <el-button type="primary" id="randomKey" @click="getRandomKey">生成随机密钥</el-button>
-    </el-form-item>
-    <el-form-item class="inputArea" label="填充的字母[a-z]：">
-        <el-input v-model="fillChar" placeholder="请输入填充字母[a-z]" clearable />
-    </el-form-item>
+       <template v-slot:key-input>
+            <el-form-item class="inputArea" label="填充的字母[a-z]：">
+              <el-input v-model="fillChar" placeholder="请输入填充字母[a-z]" clearable />
+            </el-form-item>
+            <el-form-item class="inputArea" label="密钥：">
+                <el-input v-model="key" placeholder="请输入密钥，3*3的数字矩阵，数字用逗号隔开" 
+                @input="key = key.replace(/[^0-9\,\，]/g,'').replace(/[\，]/g,',')"
+                clearable
+                 />
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" id="randomKey" @click="getRandomKey">生成随机密钥</el-button>
+            </el-form-item>
+    </template>
     </inputform>
 </template>
 

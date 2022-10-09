@@ -1,6 +1,7 @@
 <template>
     Caesar
     <inputform @encrypt="encrypt">
+       <template v-slot:key-input>
         <el-form-item class="inputArea" label="密钥（移动位数 0~25）：">
             <el-input 
                 v-model="key" 
@@ -9,6 +10,7 @@
                 clearable
              />
         </el-form-item>
+       </template>
     </inputform>
 </template>
 
