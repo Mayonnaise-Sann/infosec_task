@@ -3,7 +3,6 @@
     <inputform @encrypt="encrypt">
     <el-form-item class="inputArea" label="密钥：">
         <el-input v-model="key" placeholder="请输入密钥，3*3的数字矩阵，数字用逗号隔开" 
-        maxlength="17"
         @input="key = key.replace(/[^0-9\,\，]/g,'').replace(/[\，]/g,',')"
         clearable
          />

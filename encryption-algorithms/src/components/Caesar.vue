@@ -2,7 +2,11 @@
     Caesar
     <inputform @encrypt="encrypt">
         <el-form-item class="inputArea" label="密钥（移动位数 0~25）：">
-            <el-input v-model.number="key" placeholder="请输入密钥(0~25)" clearable
+            <el-input 
+                v-model="key" 
+                placeholder="请输入密钥(0~25)" 
+                @input="key = key.replace(/[^0-9]/g,'')"
+                clearable
              />
         </el-form-item>
     </inputform>
@@ -22,7 +26,7 @@ const useCaesar = (str, key) => {
     let len = str.length;
     for (let i = 0; i < len; i++) {
         // 取得ASCII码,循环增加
-        ciphertextArr.push(String.fromCharCode((str.charCodeAt(i) - 65 + key + 26) % 26 + 65))
+        ciphertextArr.push(String.fromCharCode((str.charCodeAt(i) - 65 + key*1 + 26) % 26 + 65))
     }
     let ciphertext = ciphertextArr.join('');
     return ciphertext;

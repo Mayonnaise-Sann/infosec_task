@@ -1,20 +1,40 @@
 <template>
-<div class="container">
-      <h1>信安第四次作业-加密算法</h1>
-      <el-tabs type="border-card" @tab-change="handleClick"  activeName='caesar'>
-        <!-- 1. 凯撒算法 -->
-        <el-tab-pane label="caesar" name="caesar">
-          <caesar ></caesar>
-        </el-tab-pane>
-        <!-- 2. playfair加密算法 -->
-        <el-tab-pane label="playfair" name="playfair">
-          <playfair  ></playfair>
-        </el-tab-pane>
-        <!-- 3. 希尔加密算法 -->
-        <el-tab-pane label="hill" name="hill">
-          <hill ></hill>
-        </el-tab-pane>
-      </el-tabs>
+<div class="container"> 
+   <div class="common-layout">
+        <el-container>
+          <el-header>
+            <h1>信安第四次作业-加密算法</h1>
+          </el-header>
+          <el-container>
+            <el-container style="width: 760px">
+            <el-main >
+              <el-card >
+                <el-tabs type="border-card" @tab-change="handleClick"  model-value='caesar'>
+                    <!-- 1. 凯撒算法 -->
+                    <el-tab-pane label="caesar" name="caesar">
+                      <caesar ></caesar>
+                    </el-tab-pane>
+                    <!-- 2. playfair加密算法 -->
+                    <el-tab-pane label="playfair" name="playfair">
+                      <playfair  ></playfair>
+                    </el-tab-pane>
+                    <!-- 3. 希尔加密算法 -->
+                    <el-tab-pane label="hill" name="hill">
+                      <hill ></hill>
+                    </el-tab-pane>
+                </el-tabs>
+              </el-card>
+            </el-main>
+            </el-container>
+            <el-container>
+              <el-main>
+              <frequency-chat></frequency-chat>
+              </el-main>
+            </el-container>
+          </el-container>
+        </el-container>
+      </div>
+
 
   </div>
 </template>
@@ -23,6 +43,7 @@
 import Caesar from './components/Caesar'
 import Playfair from './components/Playfair'
 import Hill from './components/Hill'
+import FrequencyChat from './components/FrequencyChat'
 
 
 import { ref, provide } from 'vue'
@@ -42,7 +63,7 @@ import { ref, provide } from 'vue'
 
 */
 
-let plaintext = ref('Frailty thy name is woman');
+let plaintext = ref('The wheel turns nothing is ever new');
 let ciphertext = ref('');
 
 provide('originText', {
@@ -65,14 +86,16 @@ const handleClick = () => {
 
       h1 {
         margin: 0;
-        padding: .5em;
+        padding: .8em 0;
+        font-size: 30px;
+        
         text-align: center;
         color: rgb(18, 42, 138);
       }
     .container {
-      width: 860px;
+      width: 100%;
       margin: 0 auto;
-      background-color: rgba(87, 169, 252, 0.838);
+      background-color: rgba(203, 228, 253, 0.838);
     }
   
 </style>

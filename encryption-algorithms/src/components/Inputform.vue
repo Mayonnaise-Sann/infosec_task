@@ -4,7 +4,7 @@
         <el-form-item class="inputArea" label="明文" prop="plaintext">
            <el-input
            v-model="plaintext"
-           :rows="2"
+           :rows="3"
            type="textarea"
            placeholder="请输入明文"
            @input="plaintext = plaintext.replace(/[^\a-\z\A-\Z\s]/g,'')"
@@ -25,7 +25,9 @@
 </template>
 
 <script setup>
-    import {  inject, defineEmits, computed } from 'vue'
+import { inject, defineEmits, computed } from 'vue'
+    
+
     const { plaintext, ciphertext } = inject('originText')
 
     // 将原始输入的字符格式化为大写字母
@@ -47,15 +49,18 @@
 
     #ciphertext {
         width: 99%;
-        height: 50px;
+        min-height: 60px;
         border-radius: 5px;
         padding: .5em;
         margin: 0;
         /* overflow: scroll; */
         border: 1px solid skyblue;
+        word-wrap: break-word;
+        word-break: normal;
 
     }
     #encryption {
         margin-bottom: 2em;
+       
     }
 </style>

@@ -28,7 +28,7 @@ import { ref, computed, inject } from 'vue'
 const { ciphertext } = inject("originText");
 
 // 密钥，字母字符
-const key = ref('cshao');
+const key = ref('holmes');
 // 填充字符，单个字母，默认为k
 const fillChar = ref('k');
 
