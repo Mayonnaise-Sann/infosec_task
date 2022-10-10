@@ -22,11 +22,20 @@
 <script setup>
 import Echarts from './Echarts'
 import { inject, computed, watch, } from 'vue';
+
+/*
+@params
+*/
+// 频率精度，默认为6
+const precision = 6;
+
+
 // 明文和密文字符串
 const { plaintext, ciphertext } = inject("originText");
 const p = computed(() => {
     return plaintext.value.toUpperCase().split(' ').join('');
 }) 
+
 const c = computed(()=> ciphertext.value) ;
 
 // 明文图表配置项
@@ -40,6 +49,7 @@ let chartDataPlain = {
       data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
   ],
+  color: ['#99BBFF']
 }
 // 密文图表配置项
 let chartDataCipher = {
@@ -52,6 +62,8 @@ let chartDataCipher = {
       data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     }
   ],
+  color: ['#9F88FF']
+
 }
 
 // 监听数据变化，更新图表
@@ -83,7 +95,7 @@ const getChartData = (str) => {
         arr[index][1]++;
     }
     for (let i = 0; i < arr.length; i++) {
-        arr[i][1] = (arr[i][1]/len).toFixed(2)*1;
+        arr[i][1] = (arr[i][1]/len).toFixed(precision)*1;  //频率精度
     }
     arr.sort(function (a, b) { return b[1] - a[1] });  // 降序排序
     const dateMap = new Map(arr);
@@ -106,3 +118,4 @@ const init = () => {
 init() // 初始化
 
 </script>
+ 

@@ -45,6 +45,9 @@ var option = {
         type: 'bar',
         data: []
       }
+  ],
+  color: [
+      '#409EFF'   
     ]
 };
 // 1. 使用ref创建虚拟DOM引用，使用时用main.value
@@ -70,7 +73,9 @@ function init() {
 const initChartData = () => {
     option.title.text = props.chartData.title;
     option.xAxis.data = props.chartData.xData;
-    option.series = props.chartData.series;
+  option.series = props.chartData.series;
+  option.color = props.chartData.color;
+    
 }
 
 // 2更新图表

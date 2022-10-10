@@ -91,8 +91,10 @@ const usePlayfair = (str, key) => {
 
     let x = 0;
     let y = 0;
+
+    // 每次匹配两个字符
     for (let i = 0; i < lenPlain; i += 2) {
-       
+    //    在加密矩阵中找到之后即将索引赋给 x 和 y
         for (let j = 0; j < lenLetterMatrix; j++){
             if (arrStr[i] == matrix[j]) {
                 x = j;
@@ -159,10 +161,11 @@ const encrypt = (str) => {
 .encryption-matrix-title{
     width: 117px;
     margin: 0;
-    color:  rgb(25, 46, 129);
+    color:  #0044BB;
     text-align: center;
     font-weight: 800;
-    border: 2px solid rgb(25, 46, 129);
+    background-color: #a3ccf5;
+    border: 2px solid #0044BB;
 }
 .encryption-matrix{
     width: 120px;
@@ -170,7 +173,7 @@ const encrypt = (str) => {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border-left: 1px solid rgb(25, 46, 129);
+    border-left: 1px solid #0044BB;
 }
 .encryption-matrix-cell {
     display: inline-block;
@@ -178,9 +181,9 @@ const encrypt = (str) => {
     height: 23px;
     text-align: center;
     line-height: 23px;
-    color: rgb(36, 160, 209);
-    border-right: 1px solid rgb(25, 46, 129);
-    border-bottom: 1px solid rgb(25, 46, 129);
+    color: #409EFF;
+    border-right: 1px solid #0044BB;
+    border-bottom: 1px solid #0044BB;
 
 }
 </style>
