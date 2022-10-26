@@ -9,15 +9,11 @@
            @input="plaintext = plaintext.replace(/[^\a-\z\A-\Z\s]/g,'')"
          />
         </el-form-item>
-    
          <slot name="key-input"></slot>
-
          <el-form-item>
              <el-button type="primary" id="encryption" @click="encrypt">点击加密</el-button>
          </el-form-item>
-
          <slot name="matrix"></slot>
-
         <div class="inputArea">
             <span>输出密文：</span>
             <p id="ciphertext">{{ciphertext}}</p>

@@ -26,7 +26,8 @@
               </el-card>
             </el-main>
             </el-container>
-            <el-container>
+             <!-- 字符统计 -->
+            <el-container> 
               <el-main>
               <frequency-chat></frequency-chat>
               </el-main>
