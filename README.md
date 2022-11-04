@@ -31,3 +31,7 @@
 ### 4.2 Caesar、playfair、Hill加密算法
 
 + [Caesar、playfair、Hill加密算法报告](./encryption-algorithms/README.md)
+
+
+## 五、第五次作业
++ [DES加密算法实验报告](./DES加密算法作业/README.md)
