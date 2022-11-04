@@ -935,8 +935,9 @@ function strEnc(data,firstKey,secondKey,thirdKey){
       }
       
       let changeMsgRes = document.querySelector('#change-msg-tr');
+      changeMsgRes.innerHTML = '';
       let changeKeyRes = document.querySelector('#change-key-tr');
-
+      changeKeyRes.innerHTML = '';  
       for (let i = 0; i <= 64; i++){
         let tr = document.createElement("tr");
         tr.innerHTML = `
