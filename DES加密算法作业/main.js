@@ -167,11 +167,7 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     return encData;
    }
 
-   /*
-   * decrypt the encrypted string to the original string
-   *
-   * return  the original string
-   */
+
 
    // 解密操作，类似加密
    function strDec(data,firstKey,secondKey,thirdKey){
@@ -244,11 +240,12 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     }
     return decStr;
    }
-   /*
-   * chang the string into the bit array
-   *
-   * return bit array(it's length % 64 = 0)
-   */
+
+
+
+
+
+
    //
    function getKeyBytes(key){
     var keyBytes = new Array();
@@ -264,12 +261,6 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     }
     return keyBytes;
    }
-
-   /*
-   * chang the string(it's length <= 4) into the bit array
-   *
-   * return bit array(it's length = 64)
-   */
 
    // 将一个长度小于4字符的字符串转换为64位的位串
    function strToBt(str){
@@ -312,12 +303,6 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     return bt;
    }
 
-   /*
-   * chang the bit(it's length = 4) into the hex
-   *
-   * return hex
-   */
-
    // 将4位的位串字符串转换位它的16进制形式
    function bt4ToHex(binary) {
     var hex;
@@ -341,12 +326,6 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     }
     return hex;
    }
-
-   /*
-   * chang the hex into the bit(it's length = 4)
-   *
-   * return the bit(it's length = 4)
-   */
 
    // 将一位16进制数字转换为它的二进制字符串形式
    function hexToBt4(hex) {
@@ -372,11 +351,7 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     return binary;
    }
 
-   /*
-   * chang the bit(it's length = 64) into the string
-   *
-   * return string
-   */
+
    function byteToString(byteData){
     var str="";
     for(i = 0;i<4;i++){
@@ -416,10 +391,6 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     }
     return binary;
    }
-
-   /*
-   * the 64 bit des core arithmetic
-   */
 
    // des 加密算法。
    // dataByte是明文数据
@@ -508,8 +479,8 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     return finallyPermute(finalData);
    }
 
-   // 初始置换 教材 P54 图 3-5 ，表中规律是：左边部分（上面4行）是偶数位，右半部分是原始数据的奇数位
-   // 注意观察规律，表格竖着每一列是一个字节的数据，横着看，每一行的数据是由高字节到低字节。
+
+
    function initPermute(originalData){
     var ipByte = new Array(64);
 	// 左右部分各有四行，所以迭代变量 i 是0~4。m，n记录奇数位和偶数位，所以增加量是2
@@ -911,8 +882,6 @@ function strEnc(data,firstKey,secondKey,thirdKey){
     return keys;
 }
    
-
-   //end-------------------------------------------------------------------------------------------------------------
     let bit64= new Array(64)
     for(let i=0;i<64;i++){
         bit64[i]=i
@@ -937,33 +906,21 @@ function strEnc(data,firstKey,secondKey,thirdKey){
         }
         return sum
     }
-    function myTest(myMessage,myKey,myCount) {
+    function runStatistics(myMessage,myKey,myCount) {
         var msg = myMessage;
         var bt = strToBt(msg);
-        console.log("strToBt(msg)="+strToBt(msg))//只要这个
         var key = myKey;
         var keyB = strToBt(key);
-        console.log("strToBt(key)="+strToBt(key))//只要这个
+      
         //密文改变并统计
-        var encByte = enc(bt,keyB);//只要这个
-        console.log("enc(bt,keyB)="+enc(bt,keyB))
+        var encByte = enc(bt,keyB);
         var enchex  = bt64ToHex(encByte);
-        console.log("bt64ToHex(encByte)="+bt64ToHex(encByte))
-        // endata.value=enchex;
-
         var encStr = hexToBt64(enchex);
-        // alert("encStr="+encStr);
-        console.log("encStr=hexToBt64(enchex)="+encStr);
         var eByte = new Array();
         for(m=0;m<encStr.length;m++){
           eByte[m] = parseInt(encStr.substring(m,m+1));
         }
-        var decbyte= dec(eByte,keyB)
-        var decmsg= byteToString(decbyte);
-        // alert("decbyte="+decbyte);
-        console.log("decbyte=dec(eByte,keyB)="+decbyte);
-        // alert("decmsg="+decmsg);
-        console.log("decmsg=byteToString(decbyte)="+decmsg);
+   
 
         let keyB2,bt2
         for(let i=0,j=0;i<=64;i++){
@@ -977,27 +934,23 @@ function strEnc(data,firstKey,secondKey,thirdKey){
             changeMessage2Show[i] = parseInt(changeMessage2Show[i] / myCount);
       }
       
+      let changeMsgRes = document.querySelector('#change-msg-tr');
+      let changeKeyRes = document.querySelector('#change-key-tr');
+
+      for (let i = 0; i <= 64; i++){
+        let tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${i}</td><td>${changeKey2Show[i]}</td>
+        `
+        changeMsgRes.appendChild(tr);
+      }
       
-        document.getElementById('result').append("+changeKey2Show");
-        document.getElementById('result').appendChild(document.createElement("br"))
-        console.log("+changeKey2Show")
-        document.getElementById('result').append("更改的bit个数"+"\t密文平均改变的bit数");
-        document.getElementById('result').appendChild(document.createElement("br"))
-        console.log("更改的bit个数"+"\t密文平均改变的bit数")
-        for(let i=0;i<=64;i++){
-            document.getElementById('result').append(i+"\t\t\t\t"+changeKey2Show[i]);
-            document.getElementById('result').appendChild(document.createElement("br"))
-            console.log(i+"\t\t\t\t"+changeKey2Show[i])
+       for (let i = 0; i <= 64; i++){
+        let tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${i}</td><td>${changeMessage2Show[i]}</td>
+        `
+        changeKeyRes.appendChild(tr);
         }
-        document.getElementById('result').append("+changeMessage2Show");
-        document.getElementById('result').appendChild(document.createElement("br"))
-        console.log("+changeMessage2Show")
-        document.getElementById('result').append("更改的bit个数"+"\t密文平均改变的bit数");
-        document.getElementById('result').appendChild(document.createElement("br"))
-        console.log("更改的bit个数"+"\t密文平均改变的bit数")
-        for(let i=0;i<=64;i++){
-            document.getElementById('result').append(i+"\t\t\t\t"+changeMessage2Show[i]);
-            document.getElementById('result').appendChild(document.createElement("br"))
-            console.log(i+"\t\t\t\t"+changeMessage2Show[i])
-        }
+
     }

@@ -1,0 +1,20 @@
+.container {
+    margin: 0 auto;
+    width: 600px;
+}
+#result {
+    display: flex;
+    justify-content: space-between;
+}
+th {
+    padding: .5em;
+}
+#result {
+    max-height: 600px;
+    overflow-y: scroll;
+}
+caption {
+    font-size: larger;
+    font-weight: 800;
+    margin: .5em 0;
+}
