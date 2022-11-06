@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSA</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div style="text-align: center;" class="mainCon">
+        <h1>RSA 算法</h1>
+        <div class="container">
+            <div class="ope-area">
+                <label >输入素数的范围（最大:21474836）:</label> <input type="number" id="myCount" placeholder="" value="100" min="100" max="21474836"/>
+                <button  onclick="initPrim()" id="genePrime">素数生成器</button>
+                <button  onclick="randomPrim()">随机选择素数p q和e</button>
+                <button  onclick="primaryKey()">生成私钥</button>
+                <label >输入数字明文(必须小于p*q):</label> <input type="number" id="lazy" placeholder="" value="128" min="0" max="46341"/>
+                <button  onclick="encrypt()">加密</button>
+                <button  onclick="decrypt()">解密</button>
+                <button id="reset" onclick="reset()">重置参数</button>
+            </div>
+
+            <div class="dis-area">
+                <label >随机选择的p,q,e,n=p*q,n1=(p-1)*(q-1)等信息:</label>
+                <ul>
+                    <li><span>p:</span><div class="output">000</div></li>
+                    <li><span>q:</span><div class="output">000</div></li>
+                    <li><span>e:</span><div class="output">000</div></li>
+                    <li><span>n=p*q:</span><div class="output">000</div></li>
+                    <li><span>n1=(p-1)*(q-1):</span><div class="output">000</div></li>
+                    <li><span>明文:</span><div class="output">000</div></li>
+                    <li><span>密文:</span><div class="output">000</div></li>
+                    <li><span>解密文:</span><div class="output">000</div></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./main.js"></script>
+</body>
+</html>
