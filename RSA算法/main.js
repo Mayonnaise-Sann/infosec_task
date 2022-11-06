@@ -72,7 +72,6 @@ function initPrim(){
         }
         if(tag==0){PrimeArray.push(i);}
     }
-    // document.getElementById('result0').append("p=\t"+PrimeArray);
     console.log(PrimeArray)
 }
 // 随机参数
