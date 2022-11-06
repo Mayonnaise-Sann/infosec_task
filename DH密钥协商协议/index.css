@@ -1,0 +1,34 @@
+
+.container {
+    width: 60%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(235, 250, 255);
+}
+
+li {
+    list-style: none;
+}
+.output {
+    display: inline-block;
+}
+button {
+    display: block;
+    margin: .5em;
+    padding: .5em;
+    color: #fff;
+    background-color: rgb(41, 148, 242);
+    border: 1px solid rgb(13, 98, 183);
+    border-radius: 4px;
+    cursor: pointer;
+}
+#reset {
+    background-color: rgb(224, 53, 82);
+}
+.dis-area li{
+    width: 160%;
+    display: flex;
+    justify-content: space-between;
+}
