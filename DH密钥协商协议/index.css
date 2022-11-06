@@ -1,9 +1,11 @@
-
-.container {
+.mainCon {
     width: 60%;
     max-width: 800px;
     height: 90vh;
     margin: 0 auto;
+    background-color: rgb(235, 250, 255);
+}
+.container {
     padding-top: 2em;
     display: flex;
     justify-content: space-around;

@@ -8,30 +8,32 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <div class="container">
-        <div class="ope-area">
-            <div>
-                <label >输入素数的范围：</label> <input type="number" id="myCount" placeholder="" value="200" min="100" max="21474836"/>
-                <button id="getPandG" >随机生成素数和生成元g</button>
-                <button id="getX" onclick="getX()">getX</button>
-                <button id="getY" onclick="getY()">getY</button>
-                <button id="confirmKey" onclick="confirmKey()">confirmKey</button>
-                <button id="reset" onclick="reset()">reset</button>
+    <div class="mainCon">
+        <h1>DH密钥协商协议</h1>
+        <div class="container">
+            <div class="ope-area">
+                <div>
+                    <label >输入素数的范围：</label> <input type="number" id="myCount" placeholder="" value="200" min="100" max="21474836"/>
+                    <button id="getPandG" >随机生成素数和生成元g</button>
+                    <button id="getX" onclick="getX()">getX</button>
+                    <button id="getY" onclick="getY()">getY</button>
+                    <button id="confirmKey" onclick="confirmKey()">confirmKey</button>
+                    <button id="reset" onclick="reset()">reset</button>
+                </div>
+            </div>
+            <div class="dis-area"> 
+                <ul>
+                    <li><span>素数 P: </span><div class="output">000</div></li>
+                    <li><span>生成元 g: </span><div class="output">000</div></li>
+                    <li><span>随机 x: </span><div class="output">000</div></li>
+                    <li><span>计算 X: </span><div class="output">000</div></li>
+                    <li><span>随机 y: </span><div class="output">000</div></li>
+                    <li><span>计算 Y: </span><div class="output">000</div></li>
+                    <li><span>得到 K1: </span><div class="output">000</div></li>
+                    <li><span>得到 K2: </span><div class="output">000</div></li>
+                </ul>
             </div>
         </div>
-        <div class="dis-area"> 
-            <ul>
-                <li><span>素数 P: </span><div class="output">000</div></li>
-                <li><span>生成元 g: </span><div class="output">000</div></li>
-                <li><span>随机 x: </span><div class="output">000</div></li>
-                <li><span>计算 X: </span><div class="output">000</div></li>
-                <li><span>随机 y: </span><div class="output">000</div></li>
-                <li><span>计算 Y: </span><div class="output">000</div></li>
-                <li><span>得到 K1: </span><div class="output">000</div></li>
-                <li><span>得到 K2: </span><div class="output">000</div></li>
-            </ul>
-        </div>
-
     </div>
     <script src="./main.js"></script>
 </body>
