@@ -2,7 +2,9 @@
 .container {
     width: 60%;
     max-width: 800px;
+    height: 90vh;
     margin: 0 auto;
+    padding-top: 2em;
     display: flex;
     justify-content: space-around;
     background-color: rgb(235, 250, 255);
