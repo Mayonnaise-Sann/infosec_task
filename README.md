@@ -26,13 +26,9 @@
 
 + [异或加密算法报告](./异或加密/README.md)
 
-
-
 ### 4.2 Caesar、playfair、Hill加密算法
 
 + [Caesar、playfair、Hill加密算法报告](./encryption-algorithms/README.md)
-
-
 
 
 
@@ -42,14 +38,24 @@
 
 
 
-
-
 ## 六、第六次作业
 
 + [DH密钥协商协议报告](./DH密钥协商协议/README.md)
 
 
 
-## 六、第七次作业
+## 七、第七次作业
 
 + [RSA算法报告](./RSA算法/README.md)
+
+
+
+## 八、hash作业
+
++ [hash作业](./hash作业/README.md)
+
+
+
+## 九、数字签名作业
+
++ [数字签名作业](./数字签名作业/README.md)
