@@ -1,6 +1,6 @@
 
 
-const plaintext = "这是测试的文本";
+const plaintext = "服务端发送的明文";
 // 公钥
 var encrypt = new JSEncrypt();
 encrypt.setPublicKey("-----BEGIN PUBLIC KEY----- MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArunBP3eDc6lo3ekn/ARR37bOugB+FHWdaLibCWQCzZwY0dYohGfz7aTi+d0ZDmBXolWfvY5i6slCpOqsMRi248EeawQbw7vYyBO2dcGx0Ni39iWtLoHJZWHVJNbmtBzPw+89WfKLB1T5isL8MROOuAWq8ow+qEsBVzzESN9QASQRQouOV08dxZ0tylnO/wK7w0DzTAfGpxZPPb21o6SNOE4aKGyrAYIO6qLOYo3XLOBj1Xh9KF1GR8kPTz3MK8PwBIa77oUJeepobePRAHWLS4OBvwGLSJNpR+hjnJdAhEYQjBIAKPH1lPcyeAEJycVj0FXchhyy3YfwnwJUNy6UzQIDAQAB -----END PUBLIC KEY-----");
@@ -31,7 +31,6 @@ async function digestMessage(message) {
 
     // 2. 服务端加密,摘要
     console.log("==> 2. 服务端加密,摘要 ==");
-
     var encrypted = encrypt.encrypt(desMsg_server);   
     // console.log(encrypted);
 
