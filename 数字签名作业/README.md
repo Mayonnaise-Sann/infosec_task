@@ -32,7 +32,7 @@
 
 + 首先自动生成密钥对，私钥保存在服务端不公开，公钥发布。
 
-  ![key](\images\key.png)
+  ![key](./images/key.png)
 
 + 服务端计算摘要并签名。
 
@@ -65,7 +65,7 @@
 
 ## 六、程序运行结果
 
-+ ![key](\images\res.png)
++ ![key](./images/res.png)
 
 
 
