@@ -94,7 +94,7 @@
 ## 五、实验结果截图
 
 + 文件目录
-  ![dir](.\images\dir.jpg)
+  ![dir](./images/dir.jpg)
 
 + 文件长度及内容
 
@@ -109,19 +109,19 @@
 
     
 
-    ![dir](.\images\info.jpg)
+    ![dir](./images/info.jpg)
 
   
 
   
 
-  ![dir](.\images\length.jpg)
+  ![dir](./images/length.jpg)
 
 + 文件MD5 hash信息
-  ![dir](.\images\hash.jpg)
+  ![dir](./images/hash.jpg)
 
 + 代码执行情况
-  ![dir](.\images\res01.jpg)
+  ![dir](./images/res01.jpg)
 
 
 

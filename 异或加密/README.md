@@ -45,7 +45,7 @@
 
 ### 3.1 界面截图
 
-+ <img src="\images\index.jpg" alt="index" style="zoom:67%;" />
++ <img src="./images/index.jpg" alt="index" style="zoom:67%;" />
 
 ### 3.2 加密测试
 
@@ -53,14 +53,14 @@
 
 + 输入密钥`20010116`
 + 选择文件
-  <img src="\images\加密-1.jpg"  style="zoom:67%;" />
+  <img src="./images/加密-1.jpg"  style="zoom:67%;" />
 + 加密
-  <img src="\images\加密-2.jpg"  style="zoom:67%;" />
+  <img src="./images/加密-2.jpg"  style="zoom:67%;" />
 
 #### 3.2.2 输出
 
 + 输出下载密文文件
-  <img src="\images\加密-3.jpg"  style="zoom:67%;" />
+  <img src="./images/加密-3.jpg"  style="zoom:67%;" />
 
 ### 3.3 解密测试
 
@@ -68,11 +68,11 @@
 
 + 输入密钥`20010116`
 + 选择文件
-  <img src="\images\解密-1.jpg"  style="zoom:67%;" />
+  <img src="./images/解密-1.jpg"  style="zoom:67%;" />
 + 解密
-  <img src="\images\解密-2.jpg"  style="zoom:67%;" />
+  <img src="./images/解密-2.jpg"  style="zoom:67%;" />
 
 #### 3.2.2 输出
 
 + 输出下载密文文件
-  <img src="\images\解密-3.jpg"  style="zoom:67%;" />
+  <img src="./images/解密-3.jpg"  style="zoom:67%;" />
